@@ -20,10 +20,15 @@ void printKonten (char arr[], int ukuranArr){
 void kompressArray(char arr[], int ukuranArr){
     
     for (int i = 0; i < ukuranArr; i++){
-        for (int j = 0; j < ukuranArr; j++){
+        for (int j = i; j < ukuranArr; j++){
             if (arr[i] == arr[j]){
                 jumlahHuruf++;
             }
+
+            if (arr[j+1] != arr[i]){
+                break;
+            }
+            
         }
 
         if (jumlahHuruf > '2'){
