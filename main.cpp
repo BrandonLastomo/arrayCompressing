@@ -5,8 +5,8 @@ using namespace std;
 char jumlahHuruf = '0';
 char rep;
 
-void printKonten (char arr[], int *ukuranArr);
-void kompressArray(char arr[], int *ukuranArr);
+void printKonten (char arr[], int ukuranArr);
+void kompressArray(char arr[], int ukuranArr);
 
 int main(){
 
@@ -22,19 +22,19 @@ int main(){
     }
 
     cout << "\n\nKarakter-Karakter yang Anda inputkan adalah: ";
-    printKonten(huruf, &ukuranArray);
+    printKonten(huruf, ukuranArray);
 
     cout << "\nHasil kompres dari karakter-karakter yang Anda inputkan adalah: ";
-    kompressArray(huruf, &ukuranArray);
+    kompressArray(huruf, ukuranArray);
         
     return 0;
 }
 
 
-void printKonten (char arr[], int *ukuranArr){
-        cout << *ukuranArr << ", [" ;
-        for (int indeks = 0; indeks < *ukuranArr; indeks++){
-            if (indeks == *ukuranArr-1){
+void printKonten (char arr[], int ukuranArr){
+        cout << ukuranArr << ", [" ;
+        for (int indeks = 0; indeks < ukuranArr; indeks++){
+            if (indeks == ukuranArr-1){
                 cout << "\"" << arr[indeks] << "\"";
             } else {
                 cout << "\"" << arr[indeks] << "\", ";
@@ -43,10 +43,10 @@ void printKonten (char arr[], int *ukuranArr){
         cout << "]" << endl;
 }
 
-void kompressArray(char arr[], int *ukuranArr){
+void kompressArray(char arr[], int ukuranArr){
     
-    for (int i = 0; i < *ukuranArr; i++){
-        for (int j = i; j < *ukuranArr; j++){
+    for (int i = 0; i < ukuranArr; i++){
+        for (int j = i; j < ukuranArr; j++){
             if (arr[i] == arr[j]){
                 jumlahHuruf++;
             }
@@ -60,12 +60,12 @@ void kompressArray(char arr[], int *ukuranArr){
         if (jumlahHuruf > '2'){
             rep = jumlahHuruf;
             while (rep > '2'){
-                for (int k = i; k < *ukuranArr; k++){
+                for (int k = i; k < ukuranArr; k++){
                         arr[k] = arr[k+1];
                 }
                 
                 rep--;
-                *ukuranArr--;
+                ukuranArr--;
 
             }
             
